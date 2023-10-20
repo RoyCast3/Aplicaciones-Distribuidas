@@ -3,7 +3,7 @@ import socketserver
 import requests
 
 # Tu API Key de OpenWeatherMap
-API_KEY = "tu api "
+API_KEY = "8a0741d372c6057571b2c98d0de5282d "
 
 # Función para obtener datos meteorológicos
 def obtener_datos_meteorologicos(ciudad):
