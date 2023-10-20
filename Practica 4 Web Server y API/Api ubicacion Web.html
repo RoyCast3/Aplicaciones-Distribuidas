@@ -21,14 +21,13 @@
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    if (data.main && data.geonames) {
-                        const ubicacion = data["geonames"][0]
-                        //const ciudad = ubicacion['name']
+                    if (data.geonames) {
+                        const ubicacion = data.geonames[0]
+                        const ciudad = ubicacion['name']
                         const pais = ubicacion['countryCode']
-                        const resultado = `Ubicacion: ${ubicacion}<br>Pais: ${pais}`;
+                        const resultado = `Ubicacion: ${ciudad}<br>Pais: ${pais}`;
                         document.getElementById("resultado").innerHTML = resultado;
-                    }
-                    else{
+                    } else {
                         document.getElementById("resultado").innerHTML = "Error en la ubicacion";
                     }
                 })
