@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta Ciudad y Clima</title>
 </head>
+
 <body>
     <h1>Consulta Geografica y Climatologica</h1>
     <label for="ciudad">Ciudad:</label>
     <input type="text" id="ciudadInput" placeholder="Escribe el nombre de la ciudad">
     <button onclick="obtenerInformacion()">Consultar</button>
     <br>
-    <div id="resultado1"></div>
+    <div id="resultadoGeonames"></div>
     <br>
-    <div id="resultado2"></div>
+    <div id="resultadoOpenWeather"></div>
 
     <script>
-        
-        function obtenerDatosMeteorologicos(ciudad){
+
+        function obtenerDatosMeteorologicos(ciudad) {
             const apiKey = "8a0741d372c6057571b2c98d0de5282d"; // Reemplaza con tu API Key de OpenWeatherMap
             const urlWeather = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}`;
 
@@ -28,21 +30,21 @@
                         const temperatura = (data.main.temp - 273.15).toFixed(2) + "°C";
                         const condicionesClimaticas = data.weather[0].description;
                         const resultado = `<br>Temperatura: ${temperatura}<br>Condiciones Climáticas: ${condicionesClimaticas}`;
-                        document.getElementById("resultado2").innerHTML = resultado;
+                        document.getElementById("resultadoOpenWeather").innerHTML = resultado;
                     } else {
-                        document.getElementById("resultado2").innerHTML = "Datos meteorológicos no disponibles.";
+                        document.getElementById("resultadoOpenWeather").innerHTML = "Datos meteorológicos no disponibles.";
                     }
                 })
                 .catch(error => {
-                    document.getElementById("resultado2").innerHTML = "Error: " + error.message;
+                    document.getElementById("resultadoOpenWeather").innerHTML = "Error: " + error.message;
                 });
         }
-        
+
         function obtenerInformacion() {
             const geonames_username = "castillo"
             const lugar = document.getElementById("ciudadInput").value;
             const urlGeonames = `http://api.geonames.org/searchJSON?name=${lugar}&maxRows=1&username=${geonames_username}`
-            
+
             fetch(urlGeonames)
                 .then(response => response.json())
                 .then(data => {
@@ -51,18 +53,18 @@
                         const ciudad = ubicacion['name']
                         const pais = ubicacion['countryCode']
                         const resultado = `<br>Ubicacion: ${ciudad}<br>Pais: ${pais}`;
-                        document.getElementById("resultado1").innerHTML = resultado;
+                        document.getElementById("resultadoGeonames").innerHTML = resultado;
                         obtenerDatosMeteorologicos(ciudad)
                     } else {
-                        document.getElementById("resultado1").innerHTML = "Error en la ubicacion";
+                        document.getElementById("resultadoGeonames").innerHTML = "Error en la ubicacion";
                     }
                 })
                 .catch(error => {
-                    document.getElementById("resultado1").innerHTML = "Error: " + error.message;
+                    document.getElementById("resultadoGeonames").innerHTML = "Error: " + error.message;
                 });
         }
 
-        
     </script>
 </body>
+
 </html>
