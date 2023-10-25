@@ -5,9 +5,9 @@ import random
 
 # Datos ficticios de temperatura para países de América Latina
 usuarios = {
-    "user1": "\nMusica Clasica \nRock 80's",
-    "user2": "\nElectronica 2020 \nBaladas Romanticas",
-    "user3": "\nMix pop 2023 \nRegueton 2020",
+    "Mexico": "\nMusica Clasica \nRock 80's",
+    "USA": "\nElectronica 2020 \nBaladas Romanticas",
+    "Canada": "\nMix pop 2023 \nRegueton 2020",
 }
 
 # Clase personalizada para manejar las solicitudes
@@ -29,6 +29,6 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             super().do_GET()
 
 # Configuración del servidor
-with socketserver.TCPServer(("", 9090), MyHandler) as httpd:
-    print("Servidor web en el puerto 9090")
+with socketserver.TCPServer(("", 9092), MyHandler) as httpd:
+    print("Servidor web en el puerto 9092")
     httpd.serve_forever()

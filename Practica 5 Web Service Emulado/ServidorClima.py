@@ -5,8 +5,8 @@ import random
 
 # Datos ficticios de temperatura para países de América Latina
 temperaturas = {
-    "Argentina": random.uniform(5, 30),
-    "Brazil": random.uniform(20, 40),
+    "Canada": random.uniform(5, 30),
+    "USA": random.uniform(20, 40),
     "Chile": random.uniform(5, 25),
     "Colombia": random.uniform(20, 35),
     "Mexico": random.uniform(10, 30),
@@ -31,6 +31,6 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             super().do_GET()
 
 # Configuración del servidor
-with socketserver.TCPServer(("", 9090), MyHandler) as httpd:
-    print("Servidor web en el puerto 9090")
+with socketserver.TCPServer(("", 9091), MyHandler) as httpd:
+    print("Servidor web en el puerto 9091")
     httpd.serve_forever()
