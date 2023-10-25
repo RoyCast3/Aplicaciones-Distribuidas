@@ -48,5 +48,5 @@ def obtener_ubicacion(estado):
         return f'Error en la solicitud: Código {response.status_code}'
 
 # Ejemplos de uso
-estado = "CDMX"
+estado = input('Ingresa una ciudad de América: ')
 resultadoGeonames = obtener_ubicacion(estado)

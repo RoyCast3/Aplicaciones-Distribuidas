@@ -1,7 +1,7 @@
 import requests
 
 # URL del servidor web (asegúrate de que la dirección y el puerto coincidan)
-url_base = 'http://localhost:9090'
+url_base = 'http://localhost:9092'
 
 def obtener_temperatura(user):
     url = f'{url_base}/username/{user}'

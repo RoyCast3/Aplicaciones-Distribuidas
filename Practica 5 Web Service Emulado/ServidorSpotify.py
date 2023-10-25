@@ -8,6 +8,9 @@ usuarios = {
     "Mexico": "\nMusica Clasica \nRock 80's",
     "USA": "\nElectronica 2020 \nBaladas Romanticas",
     "Canada": "\nMix pop 2023 \nRegueton 2020",
+    "user1": "\nMusica Clasica \nRock 80's",
+    "user2": "\nElectronica 2020 \nBaladas Romanticas",
+    "user3": "\nMix pop 2023 \nRegueton 2020",
 }
 
 # Clase personalizada para manejar las solicitudes
